@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function BudgetGoals({ budgetData, setBudgetData }) {
+function BudgetGoals({ budgetData, setBudgetData, onDeleteGoal }) {
   const [goal, setGoal] = useState('');
 
   const handleSetGoal = () => {
@@ -22,7 +22,10 @@ function BudgetGoals({ budgetData, setBudgetData }) {
       />
       <button onClick={handleSetGoal}>Définir</button>
 
-      <p>Objectif actuel : {budgetData.goals.amount ? budgetData.goals.amount : 'Non défini'} €</p>
+      <p>Objectif actuel : {budgetData.goals.amount ? budgetData.goals.amount : 'Non défini'} €
+      
+      <button onClick={() => onDeleteGoal()}>Supprimer</button>
+      </p>
     </div>
   );
 }
